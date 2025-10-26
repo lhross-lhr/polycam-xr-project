@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>WebXR 3D Experience</title>
+  <meta name="description" content="Reality Capture XR Experience">
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+</head>
+<body>
+  <a-scene>
+    <!-- VR Mode Button appears automatically -->
+    
+    <!-- Environment -->
+    <a-sky color="#87CEEB"></a-sky>
+    
+    <!-- Lighting for the model -->
+    <a-light type="ambient" color="#FFF" intensity="0.8"></a-light>
+    <a-light type="directional" color="#FFF" intensity="1" position="2 4 2"></a-light>
+    <a-light type="directional" color="#FFF" intensity="0.5" position="-2 2 -2"></a-light>
+    
+    <!-- Ground plane -->
+    <a-plane position="0 0 0" rotation="-90 0 0" width="10" height="10" color="#7BC8A4" shadow></a-plane>
+    
+    <!-- Your captured 3D model -->
+    <!-- IMPORTANT: Replace 'your-model.glb' with your actual filename after uploading to GitHub -->
+    <a-entity 
+      gltf-model="url(chupa-chup.glb)"
+      position="0 1 -3"
+      scale="1 1 1"
+      rotation="0 0 0"
+      animation="property: rotation; to: 0 360 0; loop: true; dur: 20000; easing: linear">
+    </a-entity>
+    
+    <!-- Camera with VR controls -->
+    <a-entity position="0 1.6 0">
+      <a-camera look-controls wasd-controls></a-camera>
+    </a-entity>
+  </a-scene>
+</body>
+</html>
